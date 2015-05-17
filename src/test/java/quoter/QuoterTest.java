@@ -14,6 +14,6 @@ public class QuoterTest {
     public void testSayQuote() throws Exception {
 
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
-        context.getBean("terminator",Quoter.class).sayQuote();
+        context.getBean("talkingRobot",TalkingRobot.class);
     }
 }
