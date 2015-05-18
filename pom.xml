@@ -19,10 +19,7 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
         </dependency>
-        <dependency>
-            <groupId>com.steineron</groupId>
-            <artifactId>RunThisMethod</artifactId>
-        </dependency>
+
     </dependencies>
 
 </project>

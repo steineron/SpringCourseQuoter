@@ -14,11 +14,17 @@ public class TalkingRobotImpl implements TalkingRobot {
 
     List<Quoter> quoters;
 
+    @InjectRandomInt(min=1, max=20)
+    int repeatRandom;
+
+    @PostConstruct
     @RunThisMethod(repeat = 5)
     public void talk() {
 
         for (Quoter quoter : quoters) {
-            quoter.sayQuote();
+            for (int j=0;j<repeatRandom;j++) {
+                quoter.sayQuote();
+            }
         }
     }
 }
