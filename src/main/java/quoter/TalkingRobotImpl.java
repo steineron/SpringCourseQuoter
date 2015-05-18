@@ -1,5 +1,6 @@
 package quoter;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 /**
@@ -13,6 +14,7 @@ public class TalkingRobotImpl implements TalkingRobot {
 
     List<Quoter> quoters;
 
+    @RunThisMethod(repeat = 5)
     public void talk() {
 
         for (Quoter quoter : quoters) {
