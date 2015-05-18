@@ -2,7 +2,6 @@ package quoter;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
-import org.springframework.util.ReflectionUtils;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -20,19 +19,23 @@ public class BenchmarkAnnotationBeanPostProcessor implements BeanPostProcessor {
         // this is the right place to use "AFTER" - because it does not configure the fields of the bean.
 
         Class<?> beanClass = o.getClass();
-        if(beanClass.isAnnotationPresent(Benchmark.class)){
-            return Proxy.newProxyInstance(beanClass.getClassLoader(),
-                    beanClass.getInterfaces(),
-                    new InvocationHandler() {
-                        public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        return Proxy.newProxyInstance(beanClass.getClassLoader(),
+                beanClass.getInterfaces(),
+                new InvocationHandler() {
+                    public Object invoke(Object proxy, Method interfaceMethod, Object[] args) throws Throwable {
+                        Object result;
+                        Method method = o.getClass().getMethod(interfaceMethod.getName());
+                        if (method.isAnnotationPresent(Benchmark.class)) {
                             long start = System.currentTimeMillis();
-                            Object result = method.invoke(o,args);
+                            result = interfaceMethod.invoke(o, args);
                             long end = System.currentTimeMillis();
-                            System.out.println("Benchmark: "+(end-start));
-                            return result;
+                            System.out.println("Benchmark: " + (end - start));
+                        } else {
+                            result = interfaceMethod.invoke(o, args);
                         }
-                    });
-        }
-        return o;
+                        return result;
+                    }
+                });
+
     }
 }

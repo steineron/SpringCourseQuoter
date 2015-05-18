@@ -9,6 +9,6 @@ import java.lang.annotation.Target;
  * Created by rosteiner on 5/18/15.
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
+@Target(ElementType.METHOD)
 public @interface Benchmark {
 }

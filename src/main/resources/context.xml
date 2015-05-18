@@ -16,7 +16,7 @@
 
        <bean id="terminator" class="quoter.TerminatorQuoter">
               <property name="quotes">
-                     <list value-type="java.lang.String">
+                     <list >
                             <value>I'll be back</value>
                             <value>Asta-la-visa baby</value>
                             <ref bean="getDown"></ref>

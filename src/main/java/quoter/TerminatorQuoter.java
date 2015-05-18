@@ -5,15 +5,16 @@ import java.util.List;
 /**
  * Created by rosteiner on 5/17/15.
  */
-@Benchmark
 public class TerminatorQuoter implements Quoter {
-    public void setQuotes(List<String> quotes) {
+    public void setQuotes(List<CharSequence> quotes) {
         this.quotes = quotes;
     }
 
-    private List<String> quotes;
+    private List<CharSequence> quotes;
+
+    @Benchmark
     public void sayQuote() {
-        for (String quote : quotes) {
+        for (CharSequence quote : quotes) {
             System.out.println(quote);
         }
     }
