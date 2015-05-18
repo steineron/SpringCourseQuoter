@@ -15,5 +15,7 @@ public class QuoterTest {
 
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
         context.getBean("talkingRobot",TalkingRobot.class);
+        System.out.println(context.getBean(Login.class));
+        context.close();
     }
 }

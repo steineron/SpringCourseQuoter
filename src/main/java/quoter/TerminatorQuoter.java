@@ -1,5 +1,6 @@
 package quoter;
 
+import javax.annotation.PreDestroy;
 import java.util.List;
 
 /**
@@ -17,5 +18,10 @@ public class TerminatorQuoter implements Quoter {
         for (CharSequence quote : quotes) {
             System.out.println(quote);
         }
+    }
+
+    @PreDestroy // called for singletons (!) when the context is closed
+    public void terminate(){
+        System.out.println("You are terminated....");
     }
 }

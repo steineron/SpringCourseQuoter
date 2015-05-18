@@ -14,7 +14,7 @@ public class TalkingRobotImpl implements TalkingRobot {
 
     List<Quoter> quoters;
 
-    @InjectRandomInt(min=1, max=20)
+    @InjectRandomInt(min=10, max=20)
     int repeatRandom;
 
     @PostConstruct
