@@ -5,6 +5,7 @@ import java.util.List;
 /**
  * Created by rosteiner on 5/17/15.
  */
+@Benchmark
 public class TerminatorQuoter implements Quoter {
     public void setQuotes(List<String> quotes) {
         this.quotes = quotes;

@@ -8,6 +8,7 @@
 
        <bean class="quoter.RunThisMethodPostProcessor"/>
        <bean class="quoter.InjectRandomIntPostPostProcessor"/>
+       <bean class="quoter.BenchmarkAnnotationBeanPostProcessor"/>
 
        <bean id="getDown" class="java.lang.String">
               <constructor-arg index="0" value="Get Down!"></constructor-arg>
